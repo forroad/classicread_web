@@ -31,7 +31,7 @@ public class BookRackServiceImpl implements BookRackService {
         if(bookRack.getSpecialBookIds() != null){
             specialBookIds.addAll(bookRack.getSpecialBookIds());
         }
-        return bookDao.findAllById(specialBookIds);
+        return (List<Book>) bookDao.findAllById(specialBookIds);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class BookRackServiceImpl implements BookRackService {
         if(bookRack.getNormalBookIds() != null){
             normalBookIds.addAll(bookRack.getNormalBookIds());
         }
-        return bookDao.findAllById(normalBookIds);
+        return (List<Book>) bookDao.findAllById(normalBookIds);
     }
 
     @Override

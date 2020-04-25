@@ -2,8 +2,8 @@ package com.ycjw.classicread.model.book;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,8 +11,7 @@ import java.util.List;
 /**
  * 名著实体类
  */
-@Data
-@Entity
+@Document(indexName = "classicread",type = "book")
 public class Book {
     /**
      * 名著Id
@@ -33,7 +32,6 @@ public class Book {
     /**
      * 章节id集合
      */
-    @ElementCollection
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<String> chapterIds = new ArrayList<>();
 
@@ -59,13 +57,22 @@ public class Book {
     public Book() {
     }
 
-    public Book(String bookId,String bookName,String bookAuthor, List<String> chapterIds,int collectionNum,String bookImgPath){
+    public Book(String bookId, String bookName, String bookAuthor, List<String> chapterIds, int collectionNum, String bookImgPath){
         this.bookId = bookId;
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.chapterIds = chapterIds;
         this.collectionNum = collectionNum;
         this.bookImgPath = bookImgPath;
+    }
+
+    public Book(Book book){
+        this.bookId = book.getBookId();
+        this.bookName = book.getBookName();
+        this.bookAuthor = book.getBookAuthor();
+        this.chapterIds = book.getChapterIds();
+        this.collectionNum = book.getCollectionNum();
+        this.bookImgPath = book.getBookImgPath();
     }
 
     public String getBookId() {

@@ -66,4 +66,9 @@ public class SpiderController {
     public void test(){
         spiderSerice.test();
     }
+
+    @GetMapping("book_bookE")
+    public void book_bookE(){
+        spiderSerice.book_bookE();
+    }
 }

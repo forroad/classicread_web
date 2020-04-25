@@ -1,13 +1,10 @@
 package com.ycjw.classicread.controller;
 
 import com.ycjw.classicread.exception.ExceptionZyc;
-import com.ycjw.classicread.model.book.Book;
 import com.ycjw.classicread.model.book.Chapter;
 import com.ycjw.classicread.model.response.Response;
-import com.ycjw.classicread.repository.book.ChapterDao;
 import com.ycjw.classicread.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 

@@ -16,5 +16,7 @@ public interface ChapterDao extends JpaRepository<Chapter,String> {
 
     @Query(value = "select chapter.chapterId from Chapter chapter where chapter.bookId=?1 order by chapter.chapterIndex")
     List<String> findAllIdByBookId(String bookId);
+
+    List<Chapter> findByBookIdAndChapterIndex(String bookId,int chapterIndex);
 }
 

@@ -1,8 +1,6 @@
 package com.ycjw.classicread.controller;
 
 import com.ycjw.classicread.exception.ExceptionZyc;
-import com.ycjw.classicread.model.book.Book;
-import com.ycjw.classicread.model.book.BookRack;
 import com.ycjw.classicread.model.response.Response;
 import com.ycjw.classicread.service.BookRackService;
 import io.swagger.annotations.ApiOperation;
@@ -11,9 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 @RestController
 @RequestMapping("bookrack")

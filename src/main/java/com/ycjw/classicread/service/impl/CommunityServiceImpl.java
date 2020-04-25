@@ -6,6 +6,7 @@ import com.ycjw.classicread.model.community.Comment;
 import com.ycjw.classicread.model.community.Community;
 import com.ycjw.classicread.model.community.Discuss;
 import com.ycjw.classicread.repository.book.BookDao;
+import com.ycjw.classicread.repository.book.BookEMDao;
 import com.ycjw.classicread.repository.community.*;
 import com.ycjw.classicread.service.CommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,7 +131,8 @@ public class CommunityServiceImpl implements CommunityService {
 
     @Override
     public List<Book> findAllPublishBook(String userId){
-        return bookDao.findBooksByPublish(userId);
+        BookEMDao bookEMDao = new BookEMDao(bookDao,communityDao);
+        return bookEMDao.findBooksByPublish(userId);
     }
 
     @Override

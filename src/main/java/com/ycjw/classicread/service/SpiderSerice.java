@@ -10,4 +10,6 @@ public interface SpiderSerice {
     void update_book();
 
     void test();
+
+    void book_bookE();
 }
