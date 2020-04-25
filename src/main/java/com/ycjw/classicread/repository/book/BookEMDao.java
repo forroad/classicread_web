@@ -2,6 +2,7 @@ package com.ycjw.classicread.repository.book;
 
 import com.ycjw.classicread.model.book.Book;
 import com.ycjw.classicread.repository.community.CommunityDao;
+import org.apache.commons.collections.IteratorUtils;
 import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class BookEMDao {
         if(bookIds == null){
             return new ArrayList<>();
         }
-        return (List<Book>) bookDao.findAllById(bookIds);
+        return IteratorUtils.toList(bookDao.findAllById(bookIds).iterator());
     }
 
 }

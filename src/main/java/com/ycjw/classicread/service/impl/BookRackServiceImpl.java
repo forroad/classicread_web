@@ -7,6 +7,7 @@ import com.ycjw.classicread.model.response.Response;
 import com.ycjw.classicread.repository.book.BookDao;
 import com.ycjw.classicread.repository.book.BookRackDao;
 import com.ycjw.classicread.service.BookRackService;
+import org.apache.commons.collections.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,12 @@ public class BookRackServiceImpl implements BookRackService {
         if(bookRack.getSpecialBookIds() != null){
             specialBookIds.addAll(bookRack.getSpecialBookIds());
         }
-        return (List<Book>) bookDao.findAllById(specialBookIds);
+        try {
+            return IteratorUtils.toList(bookDao.findAllById(specialBookIds).iterator());
+        }catch (Exception e){
+            return new ArrayList<>();
+        }
+
     }
 
     @Override
@@ -41,7 +47,11 @@ public class BookRackServiceImpl implements BookRackService {
         if(bookRack.getNormalBookIds() != null){
             normalBookIds.addAll(bookRack.getNormalBookIds());
         }
-        return (List<Book>) bookDao.findAllById(normalBookIds);
+        try {
+            return IteratorUtils.toList(bookDao.findAllById(normalBookIds).iterator());
+        }catch (Exception e){
+            return new ArrayList<>();
+        }
     }
 
     @Override
