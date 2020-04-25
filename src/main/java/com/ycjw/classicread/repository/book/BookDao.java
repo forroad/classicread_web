@@ -4,7 +4,10 @@ import com.ycjw.classicread.model.book.Book;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface BookDao extends JpaRepository<Book,String> {
@@ -35,4 +38,12 @@ public interface BookDao extends JpaRepository<Book,String> {
      * @return 查询结果
      */
     Page<Book> findByBookNameLikeOrBookAuthorLike(String BookName,String bookAuthor,Pageable pageable);
+
+    /**
+     * 查询用户在哪些书籍下面发布过评论
+     * @param userId 用户id
+     * @return 查询结果
+     */
+    @Query(nativeQuery = true,value = "SELECT * FROM book WHERE book_id IN (SELECT book_id FROM community WHERE community_id IN (SELECT community_id FROM discuss WHERE user_id = ?1))")
+    List<Book> findBooksByPublish(String userId);
 }

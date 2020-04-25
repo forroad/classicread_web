@@ -83,4 +83,11 @@ public interface UserService {
      * @throws ExceptionZyc
      */
     void getUserHeadImg(String telephone, HttpServletResponse response, HttpServletRequest request) throws ExceptionZyc;
+
+    /**
+     * 获取用户信息
+     * @param userId 用户id
+     * @return 用互信息
+     */
+    User getUserById(String userId);
 }

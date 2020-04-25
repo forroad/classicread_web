@@ -22,9 +22,12 @@ public class Community {
     public Community() {
     }
 
-    public Community(String bookId){
+    public Community(String communityId,String bookId){
+        this.communityId = bookId;
         this.bookId = bookId;
     }
+
+    
 
     @Override
     public String toString() {

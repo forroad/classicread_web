@@ -15,6 +15,8 @@ public class Note {
     @Id
     private String noteId;
 
+    private String userId;
+
     /**
      * 记录位置
      */
@@ -33,7 +35,9 @@ public class Note {
     public Note() {
     }
 
-    public Note(String noteLocation,String noteInfo,Date noteDate){
+    public Note(String noteId,String userId,String noteLocation,String noteInfo,Date noteDate){
+        this.noteId = noteId;
+        this.userId = userId;
         this.noteLocation = noteLocation;
         this.noteInfo = noteInfo;
         this.noteDate = noteDate;
@@ -45,6 +49,15 @@ public class Note {
 
     public void setNoteId(String noteId) {
         this.noteId = noteId;
+    }
+
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getNoteLocation() {

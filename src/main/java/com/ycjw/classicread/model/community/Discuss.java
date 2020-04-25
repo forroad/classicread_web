@@ -43,11 +43,60 @@ public class Discuss {
     public Discuss() {
     }
 
-    public Discuss(String communityId,String userId,Date publishDate,String discussInfo,int appreciateNum){
+    public Discuss(String discussId,String communityId,String userId,Date publishDate,String discussInfo,int appreciateNum){
+        this.discussId = discussId;
         this.communityId = communityId;
         this.userId = userId;
         this.publishDate = publishDate;
         this.discussInfo = discussInfo;
+        this.appreciateNum = appreciateNum;
+    }
+
+    public String getDiscussId() {
+        return discussId;
+    }
+
+    public void setDiscussId(String discussId) {
+        this.discussId = discussId;
+    }
+
+    public String getCommunityId() {
+        return communityId;
+    }
+
+    public void setCommunityId(String communityId) {
+        this.communityId = communityId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public String getDiscussInfo() {
+        return discussInfo;
+    }
+
+    public void setDiscussInfo(String discussInfo) {
+        this.discussInfo = discussInfo;
+    }
+
+    public int getAppreciateNum() {
+        return appreciateNum;
+    }
+
+    public void setAppreciateNum(int appreciateNum) {
         this.appreciateNum = appreciateNum;
     }
 

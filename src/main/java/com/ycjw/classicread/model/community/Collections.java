@@ -32,9 +32,38 @@ public class Collections {
     public Collections() {
     }
 
-    public Collections(String userId,List<String> discussIds){
+    public Collections(String collectionsId,String userId,List<String> discussIds){
+        this.collectionsId = collectionsId;
         this.userId = userId;
         this.discussIds = discussIds;
+    }
+
+    public String getCollectionsId() {
+        return collectionsId;
+    }
+
+    public void setCollectionsId(String collectionsId) {
+        this.collectionsId = collectionsId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public List<String> getDiscussIds() {
+        return discussIds;
+    }
+
+    public void setDiscussIds(List<String> discussIds) {
+        this.discussIds = discussIds;
+    }
+
+    public void addDiscussId(String discussId){
+        this.discussIds.add(discussId);
     }
 
     @Override

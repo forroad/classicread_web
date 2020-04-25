@@ -251,6 +251,11 @@ public class UserServiceImpl implements UserService {
         out.close();
     }
 
+    @Override
+    public User getUserById(String userId) {
+        return userDao.findById(userId).orElse(null);
+    }
+
     /**
      * 验证手机号是否符合规范
      * @param telephone 需要验证的密码

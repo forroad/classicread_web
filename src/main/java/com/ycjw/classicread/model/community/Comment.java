@@ -37,10 +37,51 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(String discussId,String userId,String commentInfo,int appreciateNum){
+    public Comment(String commentId,String discussId,String userId,String commentInfo,int appreciateNum){
+        this.commentId = commentId;
         this.discussId = discussId;
         this.userId = userId;
         this.commentInfo = commentInfo;
+        this.appreciateNum = appreciateNum;
+    }
+
+    public String getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
+
+    public String getDiscussId() {
+        return discussId;
+    }
+
+    public void setDiscussId(String discussId) {
+        this.discussId = discussId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getCommentInfo() {
+        return commentInfo;
+    }
+
+    public void setCommentInfo(String commentInfo) {
+        this.commentInfo = commentInfo;
+    }
+
+    public int getAppreciateNum() {
+        return appreciateNum;
+    }
+
+    public void setAppreciateNum(int appreciateNum) {
         this.appreciateNum = appreciateNum;
     }
 

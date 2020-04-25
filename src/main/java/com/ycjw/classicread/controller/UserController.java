@@ -3,6 +3,7 @@ package com.ycjw.classicread.controller;
 
 import com.ycjw.classicread.exception.ExceptionZyc;
 import com.ycjw.classicread.model.response.Response;
+import com.ycjw.classicread.model.user.User;
 import com.ycjw.classicread.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.MediaType;
@@ -83,6 +84,12 @@ public class UserController {
     @GetMapping("getUser")
     public Response getUser(@RequestParam("telephone")String telephone) throws ExceptionZyc{
         return new Response("查询成功",userService.getUser(telephone));
+    }
+
+    @ApiOperation("获取用户信息")
+    @GetMapping("getUserById")
+    public User getUserByid(@RequestParam("userId")String userId) throws ExceptionZyc{
+        return userService.getUserById(userId);
     }
 
 }
